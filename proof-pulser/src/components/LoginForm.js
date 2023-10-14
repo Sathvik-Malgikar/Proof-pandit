@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import {  useEffect } from 'react'
+import { useNavigate } from 'react-router-dom';
 
 
 const LoginForm = () => {
@@ -12,6 +13,10 @@ const LoginForm = () => {
 
 //   setFingerprint(clientJs.getFingerprint)
 //   console.log(fingerprint)
+const navigate = useNavigate();
+const handleClick = (pagePath) => navigate(pagePath);
+
+
 
 
   const [email, setEmail] = useState('');
@@ -19,6 +24,15 @@ const LoginForm = () => {
 
   const handleLogin = () => {
     // Handle login logic here
+if (email=="judge"){
+  handleClick("/JudgeForm")
+}else if (email=="police" ||email=="forensics" ||email=="CBI" ){
+  handleClick("/EvidenceSubmitForm")
+
+}else{
+  handleClick("/UserForm")
+}
+
   };
 
   return (
