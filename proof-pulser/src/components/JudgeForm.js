@@ -23,21 +23,63 @@ const JudgeForm = () => {
 
   const handleJudgeAction = (e) => {
 e.preventDefault()
-// console.log(approval)
-if (approval!="fetchdata")
-return
-    // Handle judge action logic here (e.g., send the decision to the server)
-    axios.get(url)
-    .then((response) => {
-      // Handle the successful response here
-      console.log("GET request successful:", response.data);
-      let iplink = createIPFSLink(response.data["cid"])
-      redirectToUrl(iplink)
-    })
-    .catch((error) => {
-      // Handle any errors that occur during the request
-      console.error("GET request failed:", error);
-    });
+console.log(approval)
+
+
+if (approval=="approve"){
+
+  
+  axios.post("http://192.168.80.216:3000/approval", {
+    "status" : "approved!" , "case_id" : caseId
+   }, {
+     headers: {
+       'Content-Type': 'application/json',
+       // You can add other headers if needed
+     }
+   })
+   .then((resp) => {
+     alert(resp.data); // Use resp.data to access the response data
+   })
+   .catch((error) => {
+     console.error('Request failed', error);
+   });
+
+
+}else if (approval=="reject"){
+
+  axios.post("http://192.168.80.216:3000/approval", {
+    "status" : "reject", "case_id" : caseId
+   }, {
+     headers: {
+       'Content-Type': 'application/json',
+       // You can add other headers if needed
+     }
+   })
+   .then((resp) => {
+     alert(resp.data); // Use resp.data to access the response data
+   })
+   .catch((error) => {
+     console.error('Request failed', error);
+   });
+
+}else if(approval=="fetchdata"){
+
+
+  // Handle judge action logic here (e.g., send the decision to the server)
+  axios.get(url)
+  .then((response) => {
+    // Handle the successful response here
+    console.log("GET request successful:", response.data);
+    let iplink = createIPFSLink(response.data["cid"])
+    redirectToUrl(iplink)
+  })
+  .catch((error) => {
+    // Handle any errors that occur during the request
+    console.error("GET request failed:", error);
+  });
+
+}
+
     
   };
 

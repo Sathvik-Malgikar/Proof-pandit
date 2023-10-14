@@ -27,12 +27,33 @@ app.get('/', (req, res) => {
 })
 
 let cid=null
+let status="not approved"
+let statuses={}
+
+
+app.post('/getStatus', (req, res) => {
+
+    res.setHeader("Content-Type","application/json")
+    let tempcase = req.body["case_id"]
+    res.send({"status" : statuses[tempcase]})
+
+  })
 
 app.get('/getALL', (req, res) => {
     res.setHeader("Content-Type","application/json")
     res.send({"cid" : cid})
+    console.log(statuses)
   })
   
+  app.post('/approval', (req, res) => {
+    const submittedData = req.body; // Access the data from the request body
+  
+    console.log('Submitted Data:', submittedData); // Print the data to the server console
+    let casetemp = submittedData["case_id"]
+    statuses[casetemp] = submittedData["status"]
+    res.send('status set in bknd');
+  });
+
 
 app.post('/evidenceSubmit', (req, res) => {
     const submittedData = req.body; // Access the data from the request body

@@ -1,19 +1,44 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import './UserForm.css'; // Import your CSS file
-
+import axios from  "axios"
 const UserForm = () => {
   const [caseId, setCaseId] = useState('');
   const [textInput, setTextInput] = useState('');
   const [status, setStatus] = useState('');
 
-  const handleSeeStatus = () => {
+  const handleSeeStatus = (e) => {
+    
+    e.preventDefault()
     // Simulate fetching the status (you can replace this with actual API call)
     if (caseId === 'exampleCaseID') {
       setStatus('Case is in progress');
     } else {
       setStatus('Case not found');
     }
+
+    axios.post("http://192.168.80.216:3000/getStatus", {
+       "case_id" : caseId
+     }, {
+       headers: {
+         'Content-Type': 'application/json',
+         // You can add other headers if needed
+       }
+     })
+     .then((resp) => {
+       console.log(resp.data); 
+       let st = resp.data["status"]
+
+       setTextInput(st)
+
+     })
+     .catch((error) => {
+       console.error('Request failed', error);
+     });
+
+
+ 
   };
+const tbox = useRef(null)
 
   return (
     <div className="user-form-container">
@@ -31,7 +56,8 @@ const UserForm = () => {
         <div className="form-group">
           <label>Text Input</label>
           <textarea
-            placeholder="Enter your text here"
+            readOnly
+            placeholder="status"
             value={textInput}
             onChange={(e) => setTextInput(e.target.value)}
           />
