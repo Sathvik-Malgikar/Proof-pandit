@@ -1,0 +1,207 @@
+/* AuthForm.css */
+
+.auth-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px; /* Add margin for spacing */
+    
+  }
+  
+  .toggle-button {
+    position: relative;
+    width: 300px; /* Adjust the width as needed */
+    height: 20px; /* Adjust the height as needed */
+    border: 1px solid #ccc;
+    cursor: pointer;
+    border-radius: 30px; /* Half of the button height */
+    overflow: hidden;
+    margin-bottom: 20px; /* Add margin for spacing */
+  }
+  
+  .slider {
+    width: 100%;
+    height: 100%;
+    background: #d7385d;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  
+  .slider.left {
+    transform: translateX(0);
+  }
+  
+  .slider.right {
+    transform: translateX(100%);
+  }
+  
+  /* Style for the forms */
+ form {
+    
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #090909;
+    border-radius: 5px;
+    background-color: rgb(17, 17, 17);;
+    color: #0a0909;
+    margin-top: 5px;
+  }
+  
+  
+  h2 {
+    color: #eceaea;
+  }
+  
+  input {
+    width: 90%;
+    padding: 8px;
+    margin-bottom: 15px;
+    background-color: #333;
+    border: 1px solid #e9dfdf;
+    border-radius: 5px;
+  }
+  
+  button {
+    width: 90%;
+    padding: 8px;
+    background: #d7385d;
+    color: white;
+    margin-bottom: 15px;
+    border: 1px solid #e9dfdf;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  button:hover {
+    background: #0056b3;
+  }
+  .bubble-icons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .bubble {
+    width: 50px;
+    height: 50px;
+    background-color: #007BFF;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .bubble:hover {
+    background-color: #0056b3;
+  }
+  .background-balls {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1; /* Place it behind your content */
+    opacity: 0.7; /* Adjust the opacity as needed */
+  }
+  
+  .ball {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+    opacity: 0.7;
+    pointer-events: none;
+  }
+  
+
+
+.ball2 {
+    top: 70%;
+    left: 60%;
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    animation: moveBall 5s infinite alternate;
+}
+.ball6 {
+  top: 70%;
+  left: 90%;
+  width: 30px;
+  height: 30px;
+  background-color: #333;
+  animation: moveBall 5s infinite alternate;
+}
+
+.ball3 {
+    top: 50%;
+    left: 20%;
+    width: 40px;
+    height: 40px;
+    background-color: #e29ab0;
+    animation: moveBall 6s infinite alternate;
+}
+
+
+
+.ball4 {
+    top: 30%;
+    left: 80%;
+    width: 50px;
+    height: 50px;
+    background-color: #cc7070;
+    animation: moveBall 6s infinite alternate;
+}
+
+.ball5 {
+    top: 90%;
+    left: 40%;
+    width: 30px;
+    height: 30px;
+    background-color: #c662aa;
+    animation: moveBall 7s infinite alternate;
+}
+
+.ball6 {
+  top: 120%;
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  background-color: #dd6f56;
+  animation: moveBall 7s infinite alternate;
+}
+.ball7 {
+  top: 190%;
+  left: 80%;
+  width: 40px;
+  height: 40px;
+  background-color: #b15858;
+  animation: moveBall 7s infinite alternate;
+}
+
+  
+  @keyframes moveBall {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(-30px);
+    }
+  }
+  /* App.css */
+  
+  /* Style for the outer container */
+  
+  
+ 

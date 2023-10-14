@@ -1,0 +1,10 @@
+/* global.css */
+body {
+  background-color: black;
+  color: white; /* Set text color to contrast with the black background */
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}

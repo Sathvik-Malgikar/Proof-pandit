@@ -1,0 +1,50 @@
+.judge-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: url('C:\Proof-pandit\proof-pulser\src\components\judge.jpg') center/cover no-repeat; /* Set background image */
+  }
+  
+  .judge-form {
+    background: rgb(17, 17, 17);
+    color: #fff;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+  }
+  
+  .judge-form .form-group {
+    margin: 10px 0;
+  }
+  
+  .judge-form label {
+    font-weight: bold;
+  }
+  
+  .judge-form input,
+  .judge-form select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #666;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    margin-top: 5px;
+  }
+  
+  .judge-form select {
+    background-color: rgb(24, 24, 24);
+  }
+  
+  .judge-form button {
+    background-color: #d7385d;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+  }
