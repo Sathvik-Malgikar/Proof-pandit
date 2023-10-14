@@ -1,6 +1,21 @@
 import React, { useState } from 'react';
+import ClientJS from 'clientjs'
+import {  useEffect } from 'react'
+
+let clientJs= null
+
 
 const LoginForm = () => {
+  const [fingerprint, setFingerprint] = useState('')
+  
+  useEffect(() => {
+    clientJs = new ClientJS()
+  }, []) // initiate on the first load
+
+  setFingerprint(clientJs.getFingerprint)
+  console.log(fingerprint)
+
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 

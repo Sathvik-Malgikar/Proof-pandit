@@ -2,7 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom'; // Import Link from react-router-dom
 import './AuthForm.css'; // Import your CSS file
 
+
 const AuthenticationPage = () => {
+
+
+   
   return (
     <div className="auth-form-container">
       <h1>Welcome to Proof-Pulse.com</h1>
