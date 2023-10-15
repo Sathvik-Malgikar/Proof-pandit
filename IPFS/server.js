@@ -6,8 +6,40 @@ const bodyParser = require('body-parser');
 const app = express()
 const port = 3000
 const cors = require('cors');
-
 app.use(cors());
+
+const { Gateway } = require('@hyperledger/fabric-gateway');
+
+// Create a new instance of the Gateway class
+// const gateway = new Gateway();
+
+const init= async ()=>{
+// Create a new instance of the Gateway class
+const gateway = new Gateway();
+
+// Connect to the Fabric network using the connection profile
+await gateway.connect('connection.json');
+
+// Get a network instance for the channel
+const network = await gateway.getNetwork('mychannel');
+
+// Get a smart contract instance
+const contract = await network.getContract('mycontract');  
+}
+
+const invoke = async ()=>{
+  
+// Submit a transaction
+await contract.invokeTransaction('myfunction', ['arg1', 'arg2']);
+
+// Evaluate a transaction
+const result = await contract.evaluateTransaction('myfunction', ['arg1', 'arg2']);
+
+// Disconnect from the Fabric network
+await gateway.disconnect();
+}
+
+ 
 
 app.use(bodyParser.json()); // Parse JSON data in the request body
 app.use(bodyParser.urlencoded({ extended: true })); // Parse URL-encoded data in the request body
@@ -62,6 +94,10 @@ app.post('/evidenceSubmit', (req, res) => {
     cid= submittedData["cid"]
     res.send('evidenceSubmit');
   });
+
+  app.get('/getFromBC', (req, res) => {
+  
+  })
 
 app.listen(port,ip)
 console.log(` server up and running, listening at http://${ip}:${port}/`);
